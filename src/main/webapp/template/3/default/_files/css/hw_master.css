@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0; border:0;}
+ul,ol{ list-style:none;}
+h1,h2,h3,h4,h5,h6{ font-size:100%;  font-weight:normal;}
+a{ color:#000000; text-decoration:none;}
+a:hover{ text-decoration:none;}
+img{display:block;}
+body{ font-size:12px; font-family:Arial, Helvetica, sans-serif; background:#eaeaea;}
+.clear{clear:both;}
+/*******通用样式******/
+.li{ line-height:22px;}
+.f14{ font-size:14px;}
+.f_w{font-weight:bold;}
+
+/*  font-family:Microsoft YaHei; */
+
+/*******边距定义******/
+.mt10{ margin-top:10px;}
+.ml10{ margin-left:10px;}
+
+/*******头部******/
+.head{width:999px; margin:0px auto; margin-top:60px;}
+.head_big{background-color: rgba(0,0,0,0.6); width:100%; height:auto; padding-top:15px; padding-bottom:14px;}
+.head_small{width:999px; margin:0px auto;background:url(../images/hw_t_bg.jpg) repeat-x;}
+.head_logo{float:left; margin-right:31px; display:inline;}
+.head_ban{float:left; width:668px; font-size:15px; font-family:"Microsoft YaHei"; line-height:61px;}
+.head_ban a{color:#fff; margin:0px 17px; display:inline;}
+.head_ban a:hover{color:#FF0; }
+/*******头部结束******/
+
+/*******底部******/
+.foot{width:999px; margin:0px auto; padding-top:64px; font-family:"Microsoft YaHei";}
+.foot p{float:left; width:100%; text-align:right; color:#444; line-height:24px;}
+.foot a{color:#444; margin:0px 6px; display:inline;}
+/*******底部结束******/

@@ -1,0 +1,174 @@
+[#escape x as (x)!?html]
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8"/>
+	<title>${node.name}_${site.fullNameOrName}${global.customs['poweredby']}</title>
+	<meta name="keywords" content="${node.keywords}"/>
+	<meta name="description" content="${node.description}"/>
+	<link href="_files/global.css" rel="stylesheet"/>
+	<link href="_files/style.css" rel="stylesheet"/>
+	<link href="_files/css/hw_master.css" rel="stylesheet" type="text/css" />
+	<link href="_files/css/hw_layout.css" rel="stylesheet" type="text/css" />
+	[#include 'inc_js.html'/]
+
+	<style>
+		body{
+			background-color: #f1f1f1;
+			padding: 0;
+			margin: 0;
+		}
+		.top {
+			width: 100%;
+			height: 100px;
+			position: fixed;
+			z-index: 900;
+			background-color: rgba(0, 0, 0, 0.66);
+
+		}
+
+		.menu {
+			width: 1150px;
+			height: 100px;
+			margin: 0 auto;
+		}
+
+		.fixednav {
+			position: fixed;
+			height: 100px;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			background: rgba(0, 0, 0, 0.8)
+		}
+
+		.menu ul {
+			float: right;
+			margin: 0;
+		}
+
+		.menu ul li {
+			list-style: none;
+			color: #454545;
+			font-family: "";
+			/*font-size: 12px;*/
+			float: left;
+			height: 30px;
+			margin: 35px 0
+		}
+
+		.menu ul li a {
+			display: block;
+			padding: 0 20px;
+			color: #fff;
+			font: 14px/30px "微软雅黑";
+		}
+
+		.nav0 li {
+			text-transform: uppercase;
+			position: relative;
+			width: 105px;
+			height: 30px;
+			overflow: hidden;
+		}
+
+		.nav0 li a span {
+			/*color: #007cd0;*/
+			display: block;
+			position: absolute;
+		}
+
+		.en {
+			bottom: -30px;
+			font: 14px/30px "Arial Unicode MS";
+			color: #FF0
+		}
+
+		.cn {
+			top: 0;
+		}
+
+		.nav0 li a span.cn {
+			top: 0;
+			font-family: '微软雅黑';
+		}
+
+		.logo {
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+		.space{
+			height: 100px;
+		}
+	</style>
+	<script>
+		function setTab(name,cursel,n){
+			for(i=1;i<=n;i++){
+				var menu=document.getElementById(name+i);
+				var con=document.getElementById("con_"+name+"_"+i);
+				menu.className=i==cursel?"hover":"";
+				con.style.display=i==cursel?"block":"none";
+			}
+		}
+	</script>
+</head>
+<body>
+<!--公司优势 start-->
+
+<div class="top">
+	<div class="menu">
+		<div class="logo"><img src="_files/images/logo.png" /></div>
+		<ul class="nav0">
+			<li ><a href="${ctx}/"><span class="cn" style="top:0; left: 0px;"> 首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
+			[@NodeList;list]
+			[#list list as n]
+			<li ><a href="${n.url}"><span class="cn" style="top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			[/#list]
+			[/@NodeList]
+
+		</ul>
+	</div>
+</div>
+<div class="space"></div>
+
+<div class="main">
+	<div class="case_box">
+		<div class="anli_left2">
+			<div class="Menubox2">
+				<ul class="case_list">
+					[@InfoList nodeId=node.id sort='id asc' limit='4';list]
+					[#list list as info]
+					<li  class="[#if info_index==0] hover[/#if]"  id="one${info_index+1}" onclick="setTab('one','${info_index+1}',6)">${info.title}</li>
+					[/#list]
+					[/@InfoList]
+				</ul>
+			</div>
+		</div>
+		<div class="anli_right">
+			<div class="fengxian_box">
+				<div id="Tab1">
+					<div class="Contentbox">
+						[@InfoList nodeId=node.id sort='id asc' limit='4';list]
+						[#list list as info]
+						<div  class="[#if info_index==0] hover[/#if]"  style="[#if info_index>0]display:none[/#if]"  id="con_one_${info_index+1}"><br />
+							<div>
+								[#list info.textList as textInfo]
+								[#noescape]${textInfo.text}[/#noescape]
+								[/#list]</div>
+						</div>
+						[/#list]
+						[/@InfoList]
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<!--公司优势 end-->
+[#include 'inc_footer.html'/]
+</body>
+</html>
+[/#escape]

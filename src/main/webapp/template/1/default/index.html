@@ -1,0 +1,272 @@
+[#escape x as (x)!?html]
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>${site.fullNameOrName}${global.customs['poweredby']}</title>
+<meta name="keywords" content="${node.keywords}"/>
+<meta name="description" content="${node.description}"/>
+<link href="_files/global.css" rel="stylesheet"/>
+<link href="_files/style.css" rel="stylesheet"/>
+<link href="_files/css/index.css" rel="stylesheet" type="text/css" />
+<link href="_files/css/new.css" rel="stylesheet" type="text/css" />
+[#include 'inc_js.html'/]
+</head>
+<body>
+[#include 'inc_header.html'/]
+<!--index start-->
+<div class="banner">
+	<div class="index_banner">
+
+		<ul class="DB_bgSet">
+			[@Info id=324;info]
+			<li style="background:url(${info.smallImageUrl}) center top no-repeat"></li>
+			[/@Info]
+
+			[@Info id=325;info]
+			<li style="background:url(${info.smallImageUrl}) center top no-repeat"></li>
+			[/@Info]
+
+			[@Info id=326;info]
+			<li style="background:url(${info.smallImageUrl}) center top no-repeat"></li>
+			[/@Info]
+		</ul>
+		<ul class="DB_imgSet">
+			<li onclick="javascript:window.location.href='#';">
+				<img class="DB_1_1" src="_files/images/banner1_5.png" alt="" />
+			</li>
+			<li onclick="javascript:window.location.href='#';">
+				<img class="DB_1_2" src="_files/images/banner1_5.png" alt="" />
+			</li>
+			<li onclick="javascript:window.location.href='#';">
+				<img class="DB_1_1" src="_files/images/banner1_5.png" alt="" />
+			</li>
+
+		</ul>
+		<script>
+			$('.index_banner').DB_tabMotionBanner({
+				key:'b28551',
+				autoRollingTime:3000,
+				bgSpeed:500,
+				motion:{
+					DB_1_1:{top:-50,opacity:0,speed:1000,delay:500},
+					DB_1_2:{top:-50,opacity:0,speed:1000,delay:500},
+					end:null
+				}
+			})
+
+		</script>
+
+	</div>
+</div>
+<!--bander 下面-->
+<div class="center">
+	<!--公司介绍-->
+	<div class="about">
+		<div class="about_txt">
+			<div class="about_tit">
+				<img src="_files/images/img_02.png" width="405" height="90" /></div>
+			[@Info id=284;list]
+			[#list list.textList as textInfo]
+			[#noescape]${textInfo.text}[/#noescape]
+			[/#list]
+			[/@Info]
+		</div>
+	</div>
+
+	<div style="clear:both"></div>
+
+<!--1组-->
+
+	<div class="news">
+		<div class="news_tit"><img src="_files/images/img_09.2.png" width="235" height="182" /></div>
+		<div class="flex-wrap">
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #e93e19; color: white;">
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoFood293.smallImageUrl}" class="" alt="" title="wlgd-snap">			</div>
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoFood293.title}</h2>
+								<font class="discript" >${infoFood293.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #17c1b7; color: white;">
+
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoFood292.smallImageUrl}" class="" alt="" title="nelles-hero">			</div>
+
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoFood292.title}</h2>
+								<font class="discript">${infoFood292.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!--2组-->
+
+	<div class="news">
+		<div class="flex-wrap">
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #3130e9; color: white;">
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoFood291.smallImageUrl}" class="" alt="" title="wlgd-snap">			</div>
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoFood291.title}</h2>
+								<font class="discript" >${infoFood291.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #c11114; color: white;">
+
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoFood290.smallImageUrl}" class="" alt="" title="nelles-hero">			</div>
+
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoFood290.title}</h2>
+								<font class="discript">${infoFood290.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+<!--3组-->
+
+	<div class="news">
+		<div class="flex-wrap">
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #e6e922; color: white;">
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoFood289.smallImageUrl}" class="" alt="" title="wlgd-snap">			</div>
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoFood289.title}</h2>
+								<font class="discript" >${infoFood289.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #be2fc1; color: white;">
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoFood327.smallImageUrl}" class="" alt="" title="nelles-hero">			</div>
+
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoFood327.title}</h2>
+								<font class="discript">${infoFood327.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!--food_one end-->
+	<!--公司理念 公司宣传 诚邀合作 start -->
+
+	<div class="news">
+		<div class="news_tit"><img src="_files/images/img_09.1.png" width="235" height="182" /></div>
+		<div class="news_word"><img src="${infoComPh.smallImageUrl}" width="1100" height="230" /> </div>
+		<div class="flex-wrap">
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #e93e19; color: white;">
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoComCoo.smallImageUrl}" class="" alt="" title="wlgd-snap">			</div>
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoComCoo.title}</h2>
+								<font class="discript" >${infoComCoo.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<div class="flex-col-6 flex-col-xs-12 hover" style="background-color: #17c1b7; color: white;">
+
+				<div class="image-background ratio ratio-16-9 hover-out">
+					<img draggable="false" src="${infoComXC.smallImageUrl}" class="" alt="" title="nelles-hero">			</div>
+
+				<div class="bleed hover-in">
+					<div class="flex-container flex-space-around">
+						<div class="flex-item flex-align-center align-center">
+							<header>
+								<h2 class="small" style="font-size: 60px;">${infoComXC.title}</h2>
+								<font class="discript">${infoComXC.description}</font>
+							</header>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!--公司理念 公司宣传 诚邀合作 end-->
+
+
+	<div class="foot">
+		<div class="foot_logo">
+			<img src="_files/images/img_12.png" width="121" height="117" />
+			<h1>Follow me</h1>
+		</div>
+		<div class="foot_copy">© 2015 杭州胖哥俩餐饮管理有限公司 All rights reserved </div>
+	</div>
+	<script>
+		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};
+		with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+[#include 'inc_footer.html'/]
+</body>
+</html>
+[/#escape]
