@@ -752,6 +752,12 @@ a.hScrollPane_rightarrow:hover {
     height: 100px;
     text-align: center;
 }
+.news_chanpincaipin {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 30px;
+    text-align: center;
+}
 
 .news ul {
     width: 100%;
@@ -878,22 +884,14 @@ a.hScrollPane_rightarrow:hover {
 .foot {
     width: 100%;
     background: #222222;
-    height: 510px;
+    height: 310px;
 }
 
 .foot_logo {
     width: 100%;
-    padding-top: 115px;
-    margin-top: 115px;
+    padding-top: 80px;
+    margin-top: 80px;
     text-align: center;
-}
-
-.foot_logo h1 {
-    display: block;
-    text-align: center;
-    font: 14px/50px "Arial Unicode MS";
-    color: #fff;
-    text-transform: uppercase;
 }
 
 .foot_link {
@@ -920,7 +918,12 @@ a.hScrollPane_rightarrow:hover {
 
 .foot_copy {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 20px;
+    color: #fff;
+    font: 14px/24px "微软雅黑";
+}
+.foot_icp {
+    text-align: center;
     color: #fff;
     font: 14px/24px "微软雅黑";
 }

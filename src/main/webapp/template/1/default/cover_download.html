@@ -145,7 +145,7 @@
 						<ul class="list">
 							[@InfoList nodeId=subn.id sort='id asc' limit='5';list]
 							[#list list as subinfo]
-							<li  class="[#if subinfo_index==0] hover[/#if]"  id="one${subn_index+1}${subinfo_index+1}" onclick="setTab('${subn_index+1}','${subinfo_index+1}',5)">${subinfo.title}</li>
+							<li  class="[#if subinfo_index==0] hover[/#if]"  id="one${subn_index+1}${subinfo_index+1}" onclick="setTab('${subn_index+1}','${subinfo_index+1}',6)">${subinfo.title}</li>
 							[/#list]
 							[/@InfoList]
 						</ul>
@@ -154,7 +154,7 @@
 						[@InfoList nodeId=subn.id sort='id asc' limit='5';list]
 						[#list list as subinfo]
 						<div  class="[#if subinfo_index==0] hover[/#if]" style="[#if subinfo_index>0]display:none[/#if]" id="con_${subn_index+1}_${subinfo_index+1}"><br />
-							<div style="text-align: center;">
+							<div >
 								[#list subinfo.textList as textInfo]
 								[#noescape]${textInfo.text}[/#noescape]
 								[/#list]
@@ -171,6 +171,7 @@
 	</div>
 	<div class="clear"></div>
 </div>
+[#include 'inc_footer.html'/]
 </body>
 
 <script>
@@ -191,5 +192,6 @@
 		}
 	}
 </script>
+
 </html>
 [/#escape]
