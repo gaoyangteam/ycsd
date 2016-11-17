@@ -1,26 +1,9 @@
 package com.jspxcms.ext.web.fore;
 
-import static com.jspxcms.ext.domain.SiteGuestbook.MODE_OFF;
-import static com.jspxcms.ext.domain.SiteGuestbook.MODE_USER;
-
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.jspxcms.common.captcha.Captchas;
 import com.jspxcms.common.web.Servlets;
 import com.jspxcms.common.web.Validations;
 import com.jspxcms.core.constant.Constants;
 import com.jspxcms.core.domain.Site;
-import com.jspxcms.core.domain.User;
 import com.jspxcms.core.service.SensitiveWordService;
 import com.jspxcms.core.service.UserService;
 import com.jspxcms.core.support.Context;
@@ -32,6 +15,18 @@ import com.jspxcms.ext.domain.SiteGuestbook;
 import com.jspxcms.ext.service.GuestbookService;
 import com.jspxcms.ext.service.GuestbookTypeService;
 import com.octo.captcha.service.CaptchaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
+
+import static com.jspxcms.ext.domain.SiteGuestbook.MODE_OFF;
 
 /**
  * GuestbookController
@@ -110,15 +105,16 @@ public class GuestbookController {
 		siteResolver.resolveSite(siteNumber);
 		Response resp = new Response(request, response, modelMap);
 		Site site = Context.getCurrentSite();
-		User user = Context.getCurrentUser();
+		//User user = Context.getCurrentUser();
 		SiteGuestbook sg = new SiteGuestbook(site.getCustoms());
 		if (sg.getMode() == MODE_OFF) {
 			// 未开启
 			return resp.warning("guestbook.off");
-		} else if (sg.getMode() == MODE_USER && user == null) {
+		}
+		/*else if (sg.getMode() == MODE_USER && user == null) {
 			// 未登录
 			return resp.unauthorized();
-		}
+		}*/
 		Map<String, Object> data = modelMap.asMap();
 		ForeContext.setData(data, request);
 		return site.getTemplate(TEMPLATE_FORM);
@@ -153,18 +149,19 @@ public class GuestbookController {
 		}
 		title = sensitiveWordService.replace(title);
 		text = sensitiveWordService.replace(text);
-		User user = Context.getCurrentUser();
+		//User user = Context.getCurrentUser();
 		Guestbook bean = new Guestbook();
-		if (sg.isAudit(user)) {
+		/*if (sg.isAudit(user)) {
 			bean.setStatus(Guestbook.AUDITED);
 			resp.setStatus(0);
-		} else {
+		}*/
+//		else {
 			bean.setStatus(Guestbook.UNAUDIT);
 			resp.setStatus(1);
-		}
-		if (user == null) {
-			user = userService.getAnonymous();
-		}
+//		}
+//		if (user == null) {
+//			user = userService.getAnonymous();
+//		}
 		bean.setUsername(username);
 		bean.setGender(gender);
 		bean.setPhone(phone);
@@ -174,7 +171,7 @@ public class GuestbookController {
 		bean.setTitle(title);
 		bean.setText(text);
 		String ip = Servlets.getRemoteAddr(request);
-		service.save(bean, user.getId(), typeId, ip, site.getId());
+		service.save(bean, 0, typeId, ip, site.getId());
 		return resp.post();
 	}
 
@@ -192,18 +189,18 @@ public class GuestbookController {
 				resp.post(451);
 			}
 		}
-		User user = Context.getCurrentUser();
+		//User user = Context.getCurrentUser();
 		if (sg.getMode() == MODE_OFF) {
 			return resp.post(501, "guestbook.off");
-		} else if (sg.getMode() == MODE_USER && user == null) {
+		} /*else if (sg.getMode() == MODE_USER && user == null) {
 			return resp.post(502, "guestbook.needLogin");
-		}
+		}*/
 
-		if (sg.isNeedCaptcha(user)) {
-			if (!Captchas.isValid(captchaService, request, captcha)) {
-				return resp.post(100, "error.captcha");
-			}
-		}
+//		if (sg.isNeedCaptcha(user)) {
+//			if (!Captchas.isValid(captchaService, request, captcha)) {
+//				return resp.post(100, "error.captcha");
+//			}
+//		}
 		return null;
 	}
 

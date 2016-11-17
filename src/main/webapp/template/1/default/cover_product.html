@@ -101,6 +101,10 @@
 		.space{
 			height: 100px;
 		}
+
+		.form-item{margin-top:20px;}
+		.form-label{float:left;padding-right:30px;width:130px;font-size:14px;font-weight:bold;text-align:right;}
+		.form-input{float:left;}
 	</style>
 	<script>
 		function setTab(name,cursel,n){
@@ -142,6 +146,7 @@
 						<li  class="[#if info_index==0] hover[/#if]"  id="one${info_index+1}" onclick="setTab('one','${info_index+1}',6)">${info.title}</li>
 						[/#list]
 						[/@InfoList]
+						<li id="one5" onclick="setTab('one','5',6)">给我留言</li>
 					</ul>
 				</div>
 			</div>
@@ -159,6 +164,64 @@
 							</div>
 							[/#list]
 							[/@InfoList]
+							<div style="display:none"  id="con_one_5"><br/>
+								<div>
+									<form id="guestbookForm" action="${ctx}/guestbook/create.jspx" method="post">
+										<input type="hidden" name="status_0" value="留言成功！"/>
+										<input type="hidden" name="status_1" value="留言成功，请等待管理员审核！"/>
+										<input type="hidden" name="nextUrl" value="${ctx}/guestbook.jspx"/>
+										<div class="mt20" style="padding:0px 20px 20px 20px;border:1px dotted #cdcdcd; background-color:#f2f2f2;">
+											<div class="form-item">
+												<div class="form-label"><em class="required">*</em>留言标题</div>
+												<div class="form-input"><input type="text" name="title" class="required" maxlength="150" style="width:500px;"/></div>
+												<div class="clear"></div>
+											</div>
+											<div class="form-item">
+												<div class="form-label"><em class="required">*</em>留言内容</div>
+												<div class="form-input"><textarea name="text" class="required" maxlength="${conf.maxLength}" style="width:500px;height:120px;"></textarea></div>
+												<div class="clear"></div>
+											</div>
+											<div class="form-item">
+												<div class="form-label"><em class="required">*</em>留言类别</div>
+												<div class="form-input">
+													[@GuestbookTypeList;list]
+													[#list list as type]
+													<label style="margin-right:15px;"><input type="radio" name="typeId" value="${type.id}" class="required"[#if type_index==0] checked="checked"[/#if]/>${type.name}</label>
+													[/#list]
+													[/@GuestbookTypeList]
+												</div>
+												<div class="clear"></div>
+											</div>
+											<div class="form-item">
+												<div class="form-label">真实姓名</div>
+												<div class="form-input"><input type="text" name="username" style="width:220px;"/></div>
+												<div class="clear"></div>
+											</div>
+											<div class="form-item">
+												<div class="form-label">联系电话</div>
+												<div class="form-input"><input type="text" name="mobile" style="width:220px;"/></div>
+												<div class="clear"></div>
+											</div>
+											<div class="form-item">
+												<div class="form-label">电子邮箱</div>
+												<div class="form-input"><input type="text" name="email" style="width:220px;"/></div>
+												<div class="clear"></div>
+											</div>
+											<table class="center mt20"><tr><td>
+												<button type="submit" class="ff-yh fs16 b" style="background-color:#cc3333;color:#fff;border:none;padding:5px 20px;">确认提交</button>
+											</td></tr></table>
+										</div>
+									</form>
+
+								</div>
+							</div>
+
+
+
+
+
+
+
 						</div>
 					</div>
 
@@ -167,6 +230,7 @@
 		</div>
 		<div class="clear"></div>
 	</div>
+
 
 [#include 'inc_footer.html'/]
 </body>
