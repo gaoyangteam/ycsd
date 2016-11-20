@@ -141,19 +141,15 @@
 			<div class="fengxian_box">
 				[#list list as subn]
 				<div id="Tab${subn_index+1}" style="[#if subn_index>0]display:none;[#else]display:block;[/#if]">
+					[@InfoList nodeId=subn.id sort='id asc' limit='6';list]
+					[#list list as subinfo]
 					<div class="Menubox">
 						<ul class="list">
-							[@InfoList nodeId=subn.id sort='id asc' limit='6';list]
-							[#list list as subinfo]
-							<li  class="[#if subinfo_index==0] hover[/#if]"  id="one${subn_index+1}${subinfo_index+1}" onclick="setTab('${subn_index+1}','${subinfo_index+1}',6)">${subinfo.title}</li>
-							[/#list]
-							[/@InfoList]
+							<li >${subinfo.title}</li>
 						</ul>
 					</div>
 					<div class="Contentbox">
-						[@InfoList nodeId=subn.id sort='id asc' limit='6';list]
-						[#list list as subinfo]
-						<div  class="[#if subinfo_index==0] hover[/#if]" style="[#if subinfo_index>0]display:none[/#if]" id="con_${subn_index+1}_${subinfo_index+1}"><br />
+						<div ><br />
 							<div >
 								[#list subinfo.textList as textInfo]
 										[#noescape]${textInfo.text}[/#noescape]
@@ -179,7 +175,7 @@
 		var cai=document.getElementById("caipin");
 		setMenu('Tab',cai.value,5);
 	}
-
+/*
 	function setTab(name,cursel,n){
 		for(i=1;i<=n;i++){
 			var menu=document.getElementById("one"+name+i);
@@ -187,7 +183,7 @@
 			menu.className=i==cursel?"hover":" ";
 			con.style.display=i==cursel?"block":"none";
 		}
-	}
+	}*/
 	function setMenu(name,cursel,n){
 		for(i=1;i<=n;i++){
 			var mentab=document.getElementById("men_"+name+i);

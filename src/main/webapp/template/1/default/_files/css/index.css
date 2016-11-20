@@ -881,47 +881,13 @@ a.hScrollPane_rightarrow:hover {
     margin-right: 166px;
 }
 
-.foot {
-    width: 100%;
-    background: #222222;
-    height: 310px;
-}
-
-.foot_logo {
-    width: 100%;
-    padding-top: 80px;
-    margin-top: 80px;
-    text-align: center;
-}
-
-.foot_link {
-    width: 200px;
-    height: 26px;
-    /*border: 2px solid #fff;*/
-    margin: 0 auto;
-    padding: 12px 30px;
-}
-
-.foot_link a {
-    width: 26px;
-    height: 26px;
-    margin: 0 7px;
-    float: left;
-    display: block;
-    border-radius: 50%;
-    background: #fff;
-}
-
-.foot_link a img {
-    border-radius: 50%;
-}
-
-.foot_copy {
-    text-align: center;
-    padding-top: 20px;
-    color: #fff;
-    font: 14px/24px "微软雅黑";
-}
+.foot{ width:100%; background:#222222; height:510px;}
+.foot_logo{ width:100%; padding-top:115px; text-align:center;}
+.foot_logo h1{ display:block; text-align: center; font:14px/50px "Arial Unicode MS"; color:#fff; text-transform:uppercase;}
+.foot_link{ width:200px; height:26px; border:2px solid #fff; margin:0 auto; padding:12px 30px;}
+.foot_link a{ width:26px; height:26px; margin:0 7px; float:left; display:block; border-radius:50%; background:#fff;}
+.foot_link a img{border-radius:50%;}
+.foot_copy{ text-align:center; padding-top:40px; color:#fff; font:14px/24px "微软雅黑";}
 .foot_icp {
     text-align: center;
     color: #fff;
