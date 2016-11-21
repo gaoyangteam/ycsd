@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jspxcms</groupId>
 	<artifactId>ycsd</artifactId>
-	<version>6.5.2</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
 
 	<name>ycsd</name>
@@ -18,7 +18,7 @@
 	</organization>
 
 	<properties>
-		<jspxcms.version>6.5.2</jspxcms.version>
+		<jspxcms.version>1.0</jspxcms.version>
 
 		<spring.version>4.2.5.RELEASE</spring.version>
 
