@@ -1,3 +1,37 @@
+.gg-left{
+    float: left;
+    position: fixed;
+    width: 180px;
+    height: 400px;
+    margin-left: 14px;
+    margin-top: 40px;
+    background-size: cover;
+}
+.gg-link {
+    width: 160px;
+    word-wrap: break-word;
+    font-size: 1.5em;
+    margin: 10px;
+
+}
+.gg-link a:hover{
+    color: red;
+}
+
+.gg-right{
+    float: right;
+    position: fixed;
+    right: 0;
+    width: 180px;
+    height: 400px;
+    margin-right: 14px;
+    margin-top: 40px;
+    background: url("../images/hr_img2.png");
+    background-size: cover;
+}
+
+
+
 * {
     margin: 0;
     padding: 0;

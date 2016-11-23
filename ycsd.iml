@@ -11,33 +11,6 @@
         </webroots>
       </configuration>
     </facet>
-    <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/conf/ext/context-directive.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/ext/controller-fore.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/ext/controller-back.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/servlet-back.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/context-component.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/context-application.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/servlet-fore.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/context-shiro.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/custom.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/plugin/plug/context-dao.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/plugin/plug/context-service.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/plugin/plug/context-directive.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/plugin/plug/controller-fore.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/plugin/plug/controller-back.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/core/context-dao.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/core/context-service.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/core/context-directive.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/core/controller-fore.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/core/controller-back.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/ext/context-dao.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/conf/ext/context-service.xml</file>
-        </fileset>
-      </configuration>
-    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />

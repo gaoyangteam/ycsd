@@ -123,7 +123,16 @@
 </div>
 
 <div class="space"></div>
-
+[@Info id=330;info]
+<div class="gg-left" style="background: url('_files/images/img_01.jpg');">
+	[/@Info]
+	<div class="gg-link">
+	</div>
+</div>
+[@Info id=331;info]
+<div class="gg-right" style="background: url(${info.smallImageUrl});">
+	[/@Info]
+</div>
 <div class="main">
 	<div class="case_box">
 		<div class="anli_left2">
@@ -136,13 +145,12 @@
 				</ul>
 			</div>
 		</div>
-
 		<div class="anli_right">
-			<div class="fengxian_box">
-				[#list list as subn]
-				<div id="Tab${subn_index+1}" style="[#if subn_index>0]display:none;[#else]display:block;[/#if]">
+			[#list list as subn]
+			<div class="fengxian_box" id="Tab${subn_index+1}" style="[#if subn_index>0]display:none;[#else]display:block;[/#if]">
 					[@InfoList nodeId=subn.id sort='id asc' limit='6';list]
 					[#list list as subinfo]
+				<div>
 					<div class="Menubox">
 						<ul class="list">
 							<li >${subinfo.title}</li>
@@ -156,13 +164,16 @@
 								[/#list]
 								</div>
 						</div>
-						[/#list]
-						[/@InfoList]
+
 					</div>
 				</div>
 				[/#list]
+				[/@InfoList]
 			</div>
+			[/#list]
+
 		</div>
+
 		[/@NodeList]
 	</div>
 	<div class="clear"></div>

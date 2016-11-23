@@ -123,7 +123,16 @@
 </div>
 
 <div class="space"></div>
-
+[@Info id=330;info]
+<div class="gg-left" style="background: url('_files/images/img_01.jpg');">
+	[/@Info]
+	<div class="gg-link">
+	</div>
+</div>
+[@Info id=331;info]
+<div class="gg-right" style="background: url(${info.smallImageUrl});">
+	[/@Info]
+</div>
 <div class="main">
 	<div class="case_box">
 		<div class="anli_left2">
@@ -138,34 +147,32 @@
 		</div>
 
 		<div class="anli_right">
-			<div class="fengxian_box">
-				[#list list as subn]
-				<div id="Tab${subn_index+1}" style="[#if subn_index>0]display:none;[#else]display:block;[/#if]">
+			[#list list as subn]
+			<div class="fengxian_box" id="Tab${subn_index+1}" style="[#if subn_index>0]display:none;[#else]display:block;[/#if]">
+				[@InfoList nodeId=subn.id sort='id asc' limit='6';list]
+				[#list list as subinfo]
+				<div>
 					<div class="Menubox">
 						<ul class="list">
-							[@InfoList nodeId=subn.id sort='id asc' limit='5';list]
-							[#list list as subinfo]
-							<li  class="[#if subinfo_index==0] hover[/#if]"  id="one${subn_index+1}${subinfo_index+1}" onclick="setTab('${subn_index+1}','${subinfo_index+1}',6)">${subinfo.title}</li>
-							[/#list]
-							[/@InfoList]
+							<li >${subinfo.title}</li>
 						</ul>
 					</div>
 					<div class="Contentbox">
-						[@InfoList nodeId=subn.id sort='id asc' limit='5';list]
-						[#list list as subinfo]
-						<div  class="[#if subinfo_index==0] hover[/#if]" style="[#if subinfo_index>0]display:none[/#if]" id="con_${subn_index+1}_${subinfo_index+1}"><br />
+						<div ><br />
 							<div >
 								[#list subinfo.textList as textInfo]
 								[#noescape]${textInfo.text}[/#noescape]
 								[/#list]
-								</div>
+							</div>
 						</div>
-						[/#list]
-						[/@InfoList]
+
 					</div>
 				</div>
 				[/#list]
+				[/@InfoList]
 			</div>
+			[/#list]
+
 		</div>
 		[/@NodeList]
 	</div>
@@ -175,14 +182,14 @@
 </body>
 
 <script>
-	function setTab(name,cursel,n){
+	/*function setTab(name,cursel,n){
 		for(i=1;i<=n;i++){
 			var menu=document.getElementById("one"+name+i);
 			var con=document.getElementById("con_"+name+"_"+i);
 			menu.className=i==cursel?"hover":" ";
 			con.style.display=i==cursel?"block":"none";
 		}
-	}
+	}*/
 	function setMenu(name,cursel,n){
 		for(i=1;i<=n;i++){
 			var mentab=document.getElementById("men_"+name+i);
