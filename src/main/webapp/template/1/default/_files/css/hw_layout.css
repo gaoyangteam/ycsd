@@ -1,10 +1,9 @@
 .gg-left{
     float: left;
     position: fixed;
-    width: 180px;
-    height: 400px;
-    margin-left: 14px;
-    margin-top: 40px;
+    width: 200px;
+    height: 500px;
+    margin-top: 14px;
     background-size: cover;
 }
 .gg-link {
@@ -22,11 +21,9 @@
     float: right;
     position: fixed;
     right: 0;
-    width: 180px;
-    height: 400px;
-    margin-right: 14px;
-    margin-top: 40px;
-    background: url("../images/hr_img2.png");
+    width: 200px;
+    height: 500px;
+    margin-top: 14px;
     background-size: cover;
 }
 
