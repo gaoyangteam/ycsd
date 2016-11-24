@@ -264,12 +264,23 @@
 				<a href="http://weibo.com/u/5633578145?from=myfollow_all"  target="_blank" class="bds_tsina" data-cmd="" title="分享到新浪微博" style=" display:block;margin: 0 7px; padding-left:0;width:26px; height:26px;background:url(_files/images/icon4.jpg) center no-repeat"></a>
 				<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网" style=" display:block;margin: 0 7px; padding-left:0;width:26px; height:26px;background:url(_files/images/icon5.jpg) center no-repeat"></a>
 			</div>
+			<!--<div class="bdsharebuttonbox">
+			<a href="#" class="bds_more" data-cmd="more"></a>
+			<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+			<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+			<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+			<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+			<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+		</div>-->
 
 		</div>
 		<div class="foot_copy">© 2016 北京意创食代有限公司 All rights reserved </div>
 		<div class="foot_icp">${site.customs['icp']} </div>
 
 	</div>
+
+
+
 <!--
 
 	<div class="foot">
@@ -282,8 +293,24 @@
 -->
 
 	<script>
-		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};
-		with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+		window._bd_share_config={
+			"common":{
+				"bdPopTitle":"分享意创食代",
+				"bdSnsKey":{},
+				"bdText":"意创食代very，good！",
+				"bdMini":"2",
+				"bdMiniList":false,
+				"bdPic":"http://localhost/centlight/public/attachment/201410/24/14/5449ef39574f5_282x220.jpg", /* 此处填写要分享图片地址 */
+				"bdStyle":"0",
+				"bdSize":"16"
+			},
+			"share":{}
+		};
+		with(document)0[
+				(getElementsByTagName('head')[0]||body).
+				appendChild(createElement('script')).
+						src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+				];
 	</script>
 </div>
 [#include 'inc_footer.html'/]
