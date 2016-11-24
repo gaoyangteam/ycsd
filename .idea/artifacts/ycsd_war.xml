@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ycsd:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ycsd-6.5.2.war">
-      <element id="artifact" artifact-name="ycsd:war exploded" />
-    </root>
-  </artifact>
-</component>
