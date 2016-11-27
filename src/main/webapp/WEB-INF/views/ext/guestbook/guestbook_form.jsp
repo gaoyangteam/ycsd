@@ -99,36 +99,7 @@ function confirmDelete() {
     <td class="in-lab" width="15%"><s:message code="guestbook.text"/>:</td>
     <td class="in-ctt" width="85%" colspan="3"><f:textarea name="text" value="${bean.text}" style="width:500px;height:80px;"/></td>
   </tr>
-  <tr>
-    <td class="in-lab" width="15%"><s:message code="guestbook.replyText"/>:</td>
-    <td class="in-ctt" width="85%" colspan="3"><f:textarea name="replyText" value="${bean.replyText}" style="width:500px;height:80px;"/></td>
-  </tr>
-  <tr>
-    <td class="in-lab" width="15%"><s:message code="guestbook.replyer"/>:</td>
-    <td class="in-ctt" width="85%" colspan="3"><f:text value="${bean.replyer.username}" readonly="readonly" style="width:180px;"/></td>
-  </tr>
-  <tr>
-    <td class="in-lab" width="15%"><s:message code="guestbook.replyDate"/>:</td>
-    <td class="in-ctt" width="35%"><input type="text" name="replyDate" value="<fmt:formatDate value="${bean.replyDate}" pattern="yyyy-MM-dd'T'HH:mm:ss"/>" onclick="WdatePicker({dateFmt:'yyyy-MM-ddTHH:mm:ss'});" style="width:180px;"/></td>
-    <td class="in-lab" width="15%"><s:message code="guestbook.replyIp"/>:</td>
-    <td class="in-ctt" width="35%"><f:text value="${bean.replyIp}" style="width:180px;"/></td>
-  </tr>
-  <tr>
-    <td class="in-lab" width="15%"><s:message code="guestbook.recommend"/>:</td>
-    <td class="in-ctt" width="35%">
-    	<label><f:radio name="recommend" value="true" checked="${bean.recommend}"/><s:message code="yes"/></label>
-    	<label><f:radio name="recommend" value="false" checked="${bean.recommend}" default="false"/><s:message code="no"/></label>
-    </td>
-    <td class="in-lab" width="15%"><em class="required">*</em><s:message code="guestbook.status"/>:</td>
-    <td class="in-ctt" width="35%">
-    	<select name="status" class="required" >
-    		<f:option value="0" selected="${bean.status}" default="0"><s:message code='guestbook.status.0'/></f:option>
-    		<f:option value="1" selected="${bean.status}"><s:message code='guestbook.status.1'/></f:option>
-    		<f:option value="2" selected="${bean.status}"><s:message code='guestbook.status.2'/></f:option>
-  		</select>
-    </td>
-  </tr>
-  <tr>
+    <tr>
     <td colspan="4" class="in-opt">
       <div class="in-btn"><input type="submit" value="<s:message code="save"/>"/></div>
       <div class="in-btn"><input type="submit" value="<s:message code="saveAndReturn"/>" onclick="$('#redirect').val('list');"/></div>

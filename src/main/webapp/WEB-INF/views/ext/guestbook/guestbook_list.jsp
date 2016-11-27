@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Jspxcms管理平台 - Powered by Jspxcms</title>
+<title>意创食代 --后台管理系统</title>
 <jsp:include page="/WEB-INF/views/commons/head.jsp"></jsp:include>
 <script type="text/javascript">
 $(function() {
@@ -63,30 +63,6 @@ function optDelete(form) {
 	  		<f:options items="${typeList}" itemValue="id" itemLabel="name" selected="${requestScope['search_EQ_type.id'][0]}"/>
 	  	</select>
 	  </label>
-	  <label class="c-lab">
-	  	<s:message code="guestbook.recommend"/>:
-	  	<select name="search_EQ_recommend_Boolean">
-	  		<option value=""><s:message code="allSelect"/></option>
-	  		<f:option value="true" selected="${search_EQ_recommend_Boolean[0]}"><s:message code="yes"/></f:option>
-	  		<f:option value="false" selected="${search_EQ_recommend_Boolean[0]}"><s:message code="no"/></f:option>
-	  	</select>
-	  </label>
-	  <label class="c-lab"><s:message code="guestbook.status"/>:
-	  	<select name="search_EQ_status">
-          <option value=""><s:message code="allSelect"/></option>
-	      <option value="0"<c:if test="${'0' eq search_EQ_status[0]}"> selected="selected"</c:if>><s:message code="guestbook.status.0"/></option>
-	      <option value="1"<c:if test="${'1' eq search_EQ_status[0]}"> selected="selected"</c:if>><s:message code="guestbook.status.1"/></option>
-	      <option value="2"<c:if test="${'2' eq search_EQ_status[0]}"> selected="selected"</c:if>><s:message code="guestbook.status.2"/></option>
-        </select>
-	  </label>
-	  <label class="c-lab">
-	  	<s:message code="guestbook.reply"/>:
-	  	<select name="search_EQ_reply_Boolean">
-	  		<option value=""><s:message code="allSelect"/></option>
-	  		<f:option value="true" selected="${search_EQ_reply_Boolean[0]}"><s:message code="yes"/></f:option>
-	  		<f:option value="false" selected="${search_EQ_reply_Boolean[0]}"><s:message code="no"/></f:option>
-	  	</select>
-	  </label>
 	  <label class="c-lab"><input type="submit" value="<s:message code="search"/>"/></label>
   </fieldset>
 </form>
@@ -106,9 +82,6 @@ function optDelete(form) {
 	<shiro:hasPermission name="ext:guestbook:delete">
   <div class="ls-btn"><input type="button" value="<s:message code="delete"/>" onclick="return optDelete(this.form);"/></div>
   </shiro:hasPermission>
-	<shiro:hasPermission name="ext:guestbook_conf:edit">
-  <div class="ls-btn"><input type="button" value="<s:message code="guestbookConf.setting"/>" onclick="location.href='../guestbook_conf/edit.do';"/></div>
-  </shiro:hasPermission>
   <div style="clear:both"></div>
 </div>
 <table id="pagedTable" border="0" cellpadding="0" cellspacing="0" class="ls-tb margin-top5">
@@ -120,10 +93,7 @@ function optDelete(form) {
     <th class="ls-th-sort"><span class="ls-sort" pagesort="title"><s:message code="guestbook.title"/></span></th>
     <th class="ls-th-sort"><span class="ls-sort" pagesort="text"><s:message code="guestbook.text"/></span></th>
     <th class="ls-th-sort"><span class="ls-sort" pagesort="creationDate"><s:message code="guestbook.creationDate"/></span></th>
-    <th class="ls-th-sort"><span class="ls-sort" pagesort="reply"><s:message code="guestbook.reply"/></span></th>
-    <th class="ls-th-sort"><span class="ls-sort" pagesort="status"><s:message code="guestbook.status"/></span></th>
-    <th class="ls-th-sort"><span class="ls-sort" pagesort="recommend"><s:message code="guestbook.recommend"/></span></th>
-  </tr>
+   </tr>
   </thead>
   <tbody>
   <c:forEach var="bean" varStatus="status" items="${pagedList.content}">  
@@ -144,10 +114,7 @@ function optDelete(form) {
     <td><c:out value="${bean.title}"/></td>
     <td><c:out value="${bean.text}"/></td>
     <td><fmt:formatDate value="${bean.creationDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-    <td><c:choose><c:when test="${bean.reply}"><s:message code="yes"/></c:when><c:otherwise><b><s:message code="no"/></b></c:otherwise></c:choose></td>
-    <td><c:if test="${bean.status == 1}"><b></c:if><s:message code="guestbook.status.${bean.status}"/><c:if test="${bean.status == 1}"></b></c:if></td>
-    <td><c:choose><c:when test="${bean.recommend}"><b><s:message code="yes"/></b></c:when><c:otherwise><s:message code="no"/></c:otherwise></c:choose></td> 
-  </tr>
+   </tr>
   </c:forEach>
   </tbody>
 </table>
