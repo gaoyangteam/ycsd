@@ -113,7 +113,7 @@
 	</script>
 </head>
 <!--公司介绍-->
-
+<body onload="setMenuPisition()">
 <div class="top">
 	<div class="menu">
 		<div class="logo"><img src="_files/images/logo.png" /></div>
@@ -121,7 +121,7 @@
 			<li ><a href="${ctx}/"><span class="cn" style="top:0; left: 0px;"> 首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
 			[@NodeList;list]
 			[#list list as n]
-			<li ><a href="${n.url}"><span class="cn" style="top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			<li ><a href="${n.url}"><span class="cn" style="[#if n_index==0]color:red;[/#if]top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
 			[/#list]
 			[/@NodeList]
 
@@ -146,7 +146,7 @@
 				<ul class="case_list">
 					[@InfoList nodeId=node.id sort='id asc' limit='6';list]
 					[#list list as info]
-					<li  class="[#if info_index==0] hover[/#if]"  id="one${info_index+1}" onclick="setTab('one','${info_index+1}',6)">${info.title}</li>
+					<li  class="[#if info_index==0] hover[/#if] position_fixed"  id="one${info_index+1}" onclick="setTab('one','${info_index+1}',6)">${info.title}</li>
 					[/#list]
 					[/@InfoList]
 				</ul>
@@ -178,5 +178,19 @@
 
 [#include 'inc_footer.html'/]
 </body>
+<script language="javascript" for="window" event="onload">
+	function setMenuPisition() {
+		var positionFixeds=document.getElementsByClassName("position_fixed");
+		positionFixeds[0].style="height:80px;position:fixed;top:110px;";
+		positionFixeds[1].style="height:80px;position:fixed;top:190px;";
+		positionFixeds[2].style="height:80px;position:fixed;top:270px;";
+		positionFixeds[3].style="height:80px;position:fixed;top:350px;";
+		positionFixeds[4].style="height:80px;position:fixed;top:430px;";
+
+	};
+	if(document.readyState=="complete"){
+		setMenuPisition();
+	}
+</script>
 </html>
 [/#escape]

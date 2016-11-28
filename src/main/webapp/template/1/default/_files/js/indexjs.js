@@ -5,7 +5,7 @@ $(window).scroll(function() {
     $(".banner").css("position","fixed");
     $(".center").css({ 'position':'relative',"top":"960px"});
     var sc=$(document);
-    if(sc.scrollTop()>=60) {
+    if(sc.scrollTop()>=760) {
         $(".top").css("background","rgba(0, 0, 0, 0.66)");
         $(".trademark-list img").css("opacity","0");
     } else {

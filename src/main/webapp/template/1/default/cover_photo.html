@@ -114,7 +114,7 @@
 			<li ><a href="${ctx}/"><span class="cn" style="top:0; left: 0px;"> 首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
 			[@NodeList;list]
 			[#list list as n]
-			<li ><a href="${n.url}"><span class="cn" style="top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			<li ><a href="${n.url}"><span class="cn" style="[#if n_index==1]color:red;[/#if]top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
 			[/#list]
 			[/@NodeList]
 
@@ -140,7 +140,7 @@
 				<ul class="case_list">
 					[@NodeList parentId=node.id;list]
 					[#list list as n]
-					<li  id="men_Tab${n_index+1}" class='[#if n_index==0] hover[/#if]' onclick="setMenu('Tab','${n_index+1}',5)">${n.title}</li>
+					<li  id="men_Tab${n_index+1}" class='[#if n_index==0] hover[/#if] position_fixed' onclick="setMenu('Tab','${n_index+1}',5)">${n.title}</li>
 					[/#list]
 				</ul>
 			</div>
@@ -183,6 +183,7 @@
 </body>
 <script>
 	function setCaipin(){
+		setMenuPisition();
 		var cai=document.getElementById("caipin");
 		setMenu('Tab',cai.value,5);
 	}
@@ -202,6 +203,20 @@
 			mentab.className=i==cursel?"hover":" ";
 			tab.style.display=i==cursel?"block":"none";
 		}
+	}
+</script>
+<script language="javascript" for="window" event="onload">
+	function setMenuPisition() {
+		var positionFixeds=document.getElementsByClassName("position_fixed");
+		positionFixeds[0].style="height:80px;position:fixed;top:110px;";
+		positionFixeds[1].style="height:80px;position:fixed;top:190px;";
+		positionFixeds[2].style="height:80px;position:fixed;top:270px;";
+		positionFixeds[3].style="height:80px;position:fixed;top:350px;";
+		positionFixeds[4].style="height:80px;position:fixed;top:430px;";
+
+	};
+	if(document.readyState=="complete"){
+		setMenuPisition();
 	}
 </script>
 </html>

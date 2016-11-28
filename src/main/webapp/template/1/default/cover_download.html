@@ -10,6 +10,10 @@
 <link href="_files/style.css" rel="stylesheet"/>
 <link href="_files/css/hw_master.css" rel="stylesheet" type="text/css" />
 <link href="_files/css/hw_layout.css" rel="stylesheet" type="text/css" />
+	<!--[if lt IE 9]><script src="_files/html5.js"></script><![endif]-->
+	<script src="_files/jquery.js"></script>
+	<script src="_files/js/jquery-1.4.2.min.js"></script>
+	<script src="_files/js/jqueryBanner.min.js"></script>
 	[#include 'inc_js.html'/]
 
 	<style>
@@ -101,10 +105,13 @@
 		.space{
 			height: 100px;
 		}
+		.form-item{margin-top:20px;}
+		.form-label{float:left;padding-right:30px;width:130px;font-size:18px;font-weight:bold;text-align:right;}
+		.form-input{float:left;}
 	</style>
 
 </head>
-<body>
+<body onload="setMenuPisition()">
 <!--合作之窗-->
 
 <div class="top">
@@ -114,14 +121,13 @@
 			<li ><a href="${ctx}/"><span class="cn" style="top:0; left: 0px;"> 首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
 			[@NodeList;list]
 			[#list list as n]
-			<li ><a href="${n.url}"><span class="cn" style="top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			<li ><a href="${n.url}"><span class="cn" style="[#if n_index==2]color:red;[/#if]top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
 			[/#list]
 			[/@NodeList]
 
 		</ul>
 	</div>
 </div>
-
 <div class="space"></div>
 [@Info id=330;info]
 <div class="gg-left" style="background: url(${info.smallImageUrl});">
@@ -136,12 +142,13 @@
 <div class="main">
 	<div class="case_box">
 		<div class="anli_left2">
-			<div class="Menubox2">
-				<ul class="case_list">
+			<div class="Menubox2" >
+				<ul class="case_list" >
 					[@NodeList parentId=node.id;list]
 					[#list list as n]
-					<li  id="men_Tab${n_index+1}" class='[#if n_index==0] hover[/#if]' onclick="setMenu('Tab','${n_index+1}',5)">${n.title}</li>
+					<li id="men_Tab${n_index+1}"  class='[#if n_index==0] hover[/#if] position_fixed'  onclick="setMenu('Tab','${n_index+1}',5)">${n.title}</li>
 					[/#list]
+					<li  class="position_fixed" id="men_Tab5" onclick="setMenu('Tab','5',5)">联系我们</li>
 				</ul>
 			</div>
 		</div>
@@ -170,9 +177,68 @@
 				</div>
 				[/#list]
 				[/@InfoList]
+
 			</div>
 			[/#list]
+			<div class="fengxian_box" id="Tab5" style="display:none;">
+				<div class="Contentbox">
+						<div >
+							[@Info id=332;info]
+							[#noescape]${info.text}[/#noescape]
+							[/@Info]
+						</div>
+					<div style="margin-top: 100px">
+						<form id="guestbookForm" action="${ctx}/guestbook/create.jspx" method="post">
+							<input type="hidden" name="status_0" value="留言成功！"/>
+							<input type="hidden" name="status_1" value="留言成功，请等待管理员审核！"/>
+							<input type="hidden" name="nextUrl" value="${ctx}/guestbook.jspx"/>
+							<div class="mt20" style="padding:0px 20px 20px 20px;border:1px dotted #cdcdcd; background-color:#f2f2f2;">
+								<div class="form-item">
+									<div class="form-label"><em class="required">*</em>留言标题</div>
+									<div class="form-input"><input type="text" name="title" class="required" maxlength="150" style="width:500px;height: 40px;"/></div>
+									<div class="clear"></div>
+								</div>
+								<div class="form-item">
+									<div class="form-label"><em class="required">*</em>留言内容</div>
+									<div class="form-input"><textarea name="text" class="required" maxlength="${conf.maxLength}" style="width:500px;height:120px;"></textarea></div>
+									<div class="clear"></div>
+								</div>
+								<div class="form-item">
+									<div class="form-label"><em class="required">*</em>留言类别</div>
+									<div class="form-input">
+										[@GuestbookTypeList;list]
+										[#list list as type]
+										<label style="margin-right:15px;"><input type="radio" name="typeId" value="${type.id}" class="required"checked="[#if type_index==0]  checked [/#if]"/>${type.name}</label>
+										[/#list]
+										[/@GuestbookTypeList]
+									</div>
+									<div class="clear"></div>
+								</div>
+								<div class="form-item">
+									<div class="form-label">真实姓名</div>
+									<div class="form-input"><input type="text" name="username" style="width:220px;height: 40px;"/></div>
+									<div class="clear"></div>
+								</div>
+								<div class="form-item">
+									<div class="form-label">联系电话</div>
+									<div class="form-input"><input type="text" name="mobile" style="width:220px;height: 40px;"/></div>
+									<div class="clear"></div>
+								</div>
+								<div class="form-item">
+									<div class="form-label">电子邮箱</div>
+									<div class="form-input"><input type="text" name="email" style="width:220px;height: 40px;"/></div>
+									<div class="clear"></div>
+								</div>
+								<table class="center mt20"><tr><td>
+									<button type="submit" class="ff-yh fs16 b" style="background-color:#cc3333;color:#fff;border:none;padding:5px 20px;">确认提交</button>
+								</td></tr></table>
+							</div>
+						</form>
 
+					</div>
+
+				</div>
+			</div>
 		</div>
 		[/@NodeList]
 	</div>
@@ -180,7 +246,20 @@
 </div>
 [#include 'inc_footer.html'/]
 </body>
+<script language="javascript" for="window" event="onload">
+	function setMenuPisition() {
+		var positionFixeds=document.getElementsByClassName("position_fixed");
+		positionFixeds[0].style="height:80px;position:fixed;top:110px;";
+		positionFixeds[1].style="height:80px;position:fixed;top:190px;";
+		positionFixeds[2].style="height:80px;position:fixed;top:270px;";
+		positionFixeds[3].style="height:80px;position:fixed;top:350px;";
+		positionFixeds[4].style="height:80px;position:fixed;top:430px;";
 
+	};
+	if(document.readyState=="complete"){
+		setMenuPisition();
+	}
+</script>
 <script>
 	/*function setTab(name,cursel,n){
 		for(i=1;i<=n;i++){
@@ -190,6 +269,7 @@
 			con.style.display=i==cursel?"block":"none";
 		}
 	}*/
+
 	function setMenu(name,cursel,n){
 		for(i=1;i<=n;i++){
 			var mentab=document.getElementById("men_"+name+i);

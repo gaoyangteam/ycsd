@@ -14,6 +14,8 @@
 	<script src="_files/jquery.js"></script>
 	<script src="_files/js/jquery-1.4.2.min.js"></script>
 	<script src="_files/js/jqueryBanner.min.js"></script>
+	[#include 'inc_js.html'/]
+
 	<style>
 		body{
 			background-color: #f1f1f1;
@@ -105,7 +107,7 @@
 		}
 
 		.form-item{margin-top:20px;}
-		.form-label{float:left;padding-right:30px;width:130px;font-size:14px;font-weight:bold;text-align:right;}
+		.form-label{float:left;padding-right:30px;width:130px;font-size:18px;font-weight:bold;text-align:right;}
 		.form-input{float:left;}
 	</style>
 	<script>
@@ -119,7 +121,7 @@
 		}
 	</script>
 </head>
-<body>
+<body onload="setMenuPisition()">
 <!--走进意创-->
 
 <div class="top">
@@ -129,7 +131,7 @@
 			<li ><a href="${ctx}/"><span class="cn" style="top:0; left: 0px;"> 首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
 			[@NodeList;list]
 			[#list list as n]
-			<li ><a href="${n.url}"><span class="cn" style="top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			<li ><a href="${n.url}"><span class="cn" style="[#if n_index==4]color:red;[/#if]top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
 			[/#list]
 			[/@NodeList]
 
@@ -154,10 +156,10 @@
 					<ul class="case_list">
 						[@InfoList nodeId=node.id sort='id asc' limit='4';list]
 						[#list list as info]
-						<li  class="[#if info_index==0] hover[/#if]"  id="one${info_index+1}" onclick="setTab('one','${info_index+1}',6)">${info.title}</li>
+						<li  class="[#if info_index==0] hover[/#if] position_fixed"  id="one${info_index+1}" onclick="setTab('one','${info_index+1}',6)">${info.title}</li>
 						[/#list]
 						[/@InfoList]
-						<li id="one5" onclick="setTab('one','5',6)">给我留言</li>
+						<li id="one5" class="position_fixed"  onclick="setTab('one','5',6)">给我留言</li>
 					</ul>
 				</div>
 			</div>
@@ -184,7 +186,7 @@
 										<div class="mt20" style="padding:0px 20px 20px 20px;border:1px dotted #cdcdcd; background-color:#f2f2f2;">
 											<div class="form-item">
 												<div class="form-label"><em class="required">*</em>留言标题</div>
-												<div class="form-input"><input type="text" name="title" class="required" maxlength="150" style="width:500px;"/></div>
+												<div class="form-input"><input type="text" name="title" class="required" maxlength="150" style="width:500px;height: 40px;"/></div>
 												<div class="clear"></div>
 											</div>
 											<div class="form-item">
@@ -197,7 +199,7 @@
 												<div class="form-input">
 													[@GuestbookTypeList;list]
 													[#list list as type]
-													<label style="margin-right:15px;"><input type="radio" name="typeId" value="${type.id}" class="required"[#if type_index==0] checked="checked"[/#if]/>${type.name}</label>
+													<label style="margin-right:15px;"><input type="radio" name="typeId" value="${type.id}" class="required" checked="[#if type_index==0] checked [/#if]"/>${type.name}</label>
 													[/#list]
 													[/@GuestbookTypeList]
 												</div>
@@ -205,17 +207,17 @@
 											</div>
 											<div class="form-item">
 												<div class="form-label">真实姓名</div>
-												<div class="form-input"><input type="text" name="username" style="width:220px;"/></div>
+												<div class="form-input"><input type="text" name="username" style="width:220px;height: 40px;"/></div>
 												<div class="clear"></div>
 											</div>
 											<div class="form-item">
 												<div class="form-label">联系电话</div>
-												<div class="form-input"><input type="text" name="mobile" style="width:220px;"/></div>
+												<div class="form-input"><input type="text" name="mobile" style="width:220px;height: 40px;"/></div>
 												<div class="clear"></div>
 											</div>
 											<div class="form-item">
 												<div class="form-label">电子邮箱</div>
-												<div class="form-input"><input type="text" name="email" style="width:220px;"/></div>
+												<div class="form-input"><input type="text" name="email" style="width:220px;height: 40px;"/></div>
 												<div class="clear"></div>
 											</div>
 											<table class="center mt20"><tr><td>
@@ -242,7 +244,20 @@
 		<div class="clear"></div>
 	</div>
 
+<script language="javascript" for="window" event="onload">
+	function setMenuPisition() {
+		var positionFixeds=document.getElementsByClassName("position_fixed");
+		positionFixeds[0].style="height:80px;position:fixed;top:110px;";
+		positionFixeds[1].style="height:80px;position:fixed;top:190px;";
+		positionFixeds[2].style="height:80px;position:fixed;top:270px;";
+		positionFixeds[3].style="height:80px;position:fixed;top:350px;";
+		positionFixeds[4].style="height:80px;position:fixed;top:430px;";
 
+	};
+	if(document.readyState=="complete"){
+		setMenuPisition();
+	}
+</script>
 [#include 'inc_footer.html'/]
 </body>
 </html>
