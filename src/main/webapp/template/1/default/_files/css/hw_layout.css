@@ -1,7 +1,7 @@
 .gg-left{
     float: left;
     position: fixed;
-    width: 200px;
+    width: 175px;
     height: 500px;
     margin-top: 14px;
     background-size: cover;
@@ -21,7 +21,7 @@
     float: right;
     position: fixed;
     right: 0;
-    width: 200px;
+    width: 175px;
     height: 500px;
     margin-top: 14px;
     background-size: cover;
