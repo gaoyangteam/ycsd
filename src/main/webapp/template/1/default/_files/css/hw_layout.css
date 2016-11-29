@@ -738,7 +738,8 @@ body {
 .Menubox li {
     float: left;
     cursor: pointer;
-    background: #e8e8e8;
+    font: 25px/40px 'Microsoft Yahei',STHeiti,"sans-serif";
+    color: #d21b17;
     height: 40px;
     line-height: 40px;
     padding: 0px 13px;
