@@ -116,13 +116,13 @@ parent.frames["left"].location.href="left.do";
 	<div class="ls-btn"><input type="submit" value="<s:message code="save"/>"/></div>
 	<div class="ls-btn"></div>
 	</shiro:hasPermission>
-	<shiro:hasPermission name="core:node:copy">
+	<%--<shiro:hasPermission name="core:node:copy">
 	<div class="ls-btn"><input type="button" value="<s:message code="copy"/>" onclick="return optSingle('#copy_opt_');"/></div>
-	</shiro:hasPermission>
+	</shiro:hasPermission>--%>
 	<shiro:hasPermission name="core:node:edit">
 	<div class="ls-btn"><input type="button" value="<s:message code="edit"/>" onclick="return optSingle('#edit_opt_');"/></div>
 	</shiro:hasPermission>
-  <shiro:hasPermission name="core:node:move_form">
+  <%--<shiro:hasPermission name="core:node:move_form">
   <div class="ls-btn"><input type="button" value="<s:message code="move"/>" onclick="return optMulti(this.form,'move_form.do?queryParentId=${queryParentId}&showDescendants=${showDescendants}&${searchstring}',true);"/></div>
   </shiro:hasPermission>
   <shiro:hasPermission name="core:node:merge_form">
@@ -130,7 +130,7 @@ parent.frames["left"].location.href="left.do";
   </shiro:hasPermission>
 	<shiro:hasPermission name="core:node:delete">
 	<div class="ls-btn"><input type="button" value="<s:message code="delete"/>" onclick="return optDelete(this.form);"/></div>
-	</shiro:hasPermission>
+	</shiro:hasPermission>--%>
 	<div class="ls-btn"></div>
 	<shiro:hasPermission name="core:node:batch_update">
   <div class="ls-btn"><input type="button" value="<s:message code='moveTop'/>" onclick="Cms.moveTop('ids');"/></div>
@@ -162,18 +162,18 @@ parent.frames["left"].location.href="left.do";
 			<shiro:hasPermission name="core:node:create">
       <a id="createChild_opt_${bean.id}" href="create.do?parentId=${bean.id}&queryParentId=${queryParentId}&showDescendants=${showDescendants}&${searchstring}" class="ls-opt"><s:message code="node.createChild"/></a>
       </shiro:hasPermission>
-			<shiro:hasPermission name="core:node:copy">
+		<%--	<shiro:hasPermission name="core:node:copy">
       <a id="copy_opt_${bean.id}" href="create.do?cid=${bean.id}&queryParentId=${queryParentId}&showDescendants=${showDescendants}&${searchstring}" class="ls-opt"<c:if test="${bean.parent==null}"> disabled="disabled"</c:if>><s:message code="copy"/></a>
-      </shiro:hasPermission>
+      </shiro:hasPermission>--%>
 			<shiro:hasPermission name="core:node:edit">
       <a id="edit_opt_${bean.id}" href="edit.do?id=${bean.id}&position=${pagedList.number*pagedList.size+status.index}&queryParentId=${queryParentId}&showDescendants=${showDescendants}&${searchstring}" class="ls-opt"><s:message code="edit"/></a>
       </shiro:hasPermission>
-      <shiro:hasPermission name="core:node:move_form">
+    <%--  <shiro:hasPermission name="core:node:move_form">
       <a id="move_opt_${bean.id}" href="move_form.do?ids=${bean.id}&queryParentId=${queryParentId}&showDescendants=${showDescendants}&${searchstring}" class="ls-opt"<c:if test="${bean.parent==null}"> disabled="disabled"</c:if>><s:message code="move"/></a>
       </shiro:hasPermission>
 			<shiro:hasPermission name="core:node:delete">
       <a href="delete.do?ids=${bean.id}&queryParentId=${queryParentId}&showDescendants=${showDescendants}&${searchstring}" onclick="return confirmDelete();" class="ls-opt"><s:message code="delete"/></a>
-      </shiro:hasPermission>
+      </shiro:hasPermission>--%>
      </td>
     <td><c:out value="${bean.id}"/><f:hidden name="id" value="${bean.id}"/></td>
     <td><span style="padding-left:${showDescendants ? bean.treeLevel*12 : 0}px"><f:text name="name" value="${bean.name}" style="width:120px;"/></span></td>
