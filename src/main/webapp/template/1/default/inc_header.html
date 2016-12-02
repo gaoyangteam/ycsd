@@ -3,10 +3,10 @@
 	<div class="menu">
 		<div class="logo"><img src="_files/images/logo.png" /></div>
 		<ul class="nav0">
-			<li id="nav_index" ><a href="${ctx}/"><span class="cn" style="color:red;top:0; left: 0px;">首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
+			<li id="nav_index" ><a href="${ctx}/"><span class="cn" style="color:red;top:0; left: 0px; font:16px/30px '微软雅黑';">首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
 			[@NodeList;list]
 			[#list list as n]
-			<li ><a href="${n.url}"><span class="cn" style="top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			<li ><a href="${n.url}"><span class="cn" style="top:0; left: 0px;font:16px/30px '微软雅黑';">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
 			[/#list]
 			[/@NodeList]
 			</ul>
