@@ -317,13 +317,13 @@ a {
 }
 
 .about_txt {
-    width: 100%;
+    width: 50%;
     float: left;
 }
 
 .about_content {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 .about_tit {
     width: 100%;
@@ -753,10 +753,12 @@ a.hScrollPane_rightarrow:hover {
 .news_tit {
     width: 100%;
     height: 100px;
+    text-align: center;
 }
 .news_chanpincaipin {
     width: 100%;
     height: 100px;
+    text-align: center;
     margin-bottom: 30px;
 }
 
