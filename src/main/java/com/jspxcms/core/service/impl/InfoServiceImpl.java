@@ -629,7 +629,30 @@ public class InfoServiceImpl implements InfoService, SiteDeleteListener,
 		for (Entry<String, String> entry : clobs.entrySet()) {
 			String v = entry.getValue();
 			if (v != null) {
-				entry.setValue(policyFactory.sanitize(v));
+				//entry.setValue(policyFactory.sanitize(v));
+				int i = v.indexOf("hspace=");
+				if(i>0) {
+					String s=v.substring(i+8,i+10);
+					StringBuilder sb=new StringBuilder(v);
+					int style = sb.indexOf("style");
+//					if(style>0){
+//						int marign = sb.indexOf("marign");
+//						if(marign>0){
+//							sb.delete(marign+8,marign+10);
+//							sb.insert(marign+8,s);
+//						}
+//						else {
+//							sb.insert(style+7,"margin:"+s+"px; ");
+//						}
+//					}
+//					else {
+						sb.insert(i,"style=\"margin:"+s+"px;\" ");
+//					}
+					entry.setValue(sb.toString());
+				}
+				else {
+					return;
+				}
 			}
 		}
 	}

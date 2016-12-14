@@ -111,12 +111,12 @@
 <input type="hidden" id="caipin" name="caipin" value="${caipin}"/>
 <div class="top">
 	<div class="menu">
-		<div class="logo"><img src="_files/images/logo.png" /></div>
+		<div class="logo"style="margin-left: 30px"><img src="_files/images/logo.png" /></div>
 		<ul class="nav0">
 			<li ><a href="${ctx}/"><span class="cn" style="top:0; left: 0px;"> 首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
 			[@NodeList;list]
 			[#list list as n]
-			<li ><a href="${n.url}"><span class="cn" style="[#if n_index==1]color:red;[/#if]top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			<li style="margin-left: 30px"><a href="${n.url}"><span class="cn" style="[#if n_index==1]color:red;[/#if]top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
 			[/#list]
 			[/@NodeList]
 

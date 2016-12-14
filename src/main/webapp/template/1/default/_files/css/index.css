@@ -90,22 +90,16 @@ a {
     background: rgba(0, 0, 0, 0.54)
 }
 
-.menu ul {
-    float: right;
-}
+.menu ul{ float:right;}
 
-.menu ul li {
-    float: left;
-    height: 30px;
-    margin: 35px 0
-}
+.menu ul li{ float:left;height:30px; margin:35px 0; width:115px; text-align:center;}
 
-.menu ul li a {
-    display: block;
-    padding: 0 20px;
-    color: #fff;
-    font: 14px/30px "微软雅黑";
-}
+.menu ul li a{ display:block; padding:0 20px; color:#fff; font:14px/30px "微软雅黑";}
+.menu ul li a:hover{ color:#ff0;}
+.menu ul li div{ width:150px; right:-16px;  top:30px; height:100px;position:absolute; display: block;}
+.menu ul li div p{ width:100%; float:left; border-bottom:1px  dotted #c2c2c2; height:40px; line-height:40px; font-family:"微软雅黑"; color:#FFF; margin-top:0px; background:url(../images/bg1.png);}
+.menu ul li div p a{ font-size:12px; line-height:41px;}
+.menu ul li:hover div{ display:block;}
 
 .nav0 li {
     text-transform: uppercase;
