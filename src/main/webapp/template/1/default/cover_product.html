@@ -10,6 +10,7 @@
 <link href="_files/style.css" rel="stylesheet"/>
 <link href="_files/css/hw_master.css" rel="stylesheet" type="text/css" />
 <link href="_files/css/hw_layout.css" rel="stylesheet" type="text/css" />
+	<link href="_files/css/css.css" rel="stylesheet" type="text/css" />
 	<!--[if lt IE 9]><script src="_files/html5.js"></script><![endif]-->
 	<script src="_files/jquery.js"></script>
 	<script src="_files/js/jquery-1.4.2.min.js"></script>
@@ -63,18 +64,21 @@
 			color: #454545;
 			font-family: "";
 			/*font-size: 12px;*/
+			width: 115px;
 			float: left;
 			height: 30px;
-			margin: 35px 0
 		}
 
 		.menu ul li a {
 			display: block;
 			padding: 0 20px;
 			color: #fff;
-			font: 14px/30px "微软雅黑";
+			font: 16px/30px "微软雅黑";
 		}
 
+		.menu ul li a:hover {
+			color: #ff0;
+		}
 		.nav0 li {
 			text-transform: uppercase;
 			position: relative;
@@ -91,7 +95,7 @@
 
 		.en {
 			bottom: -30px;
-			font: 18px/30px "Arial Unicode MS";
+			font: 16px/30px "Arial Unicode MS";
 			color: #FF0
 		}
 
@@ -115,6 +119,223 @@
 			height: 100px;
 		}
 
+		.rotatemenu, .rotatemenu ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.rotatemenu {
+			height: 58px;
+		}
+		.submenu li {
+			background: -moz-linear-gradient(#494949, #454545);
+			background: -ms-linear-gradient(#494949, #454545);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #494949), color-stop(100%, #454545));
+			background: -webkit-linear-gradient(#494949, #454545);
+			background: -o-linear-gradient(#494949, #454545);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525');
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525')";
+			background: linear-gradient(#494949, #454545);
+
+			border-bottom: 2px solid #181818;
+			border-top: 2px solid #303030;
+			min-width: 100px;
+		}
+		.rotatemenu > li {
+			display: block;
+			float: left;
+			position: relative;
+		}
+		.rotatemenu > li:first-child {
+			border-radius: 5px 0 0;
+		}
+		.rotatemenu a {
+			border-left: 3px solid rgba(0, 0, 0, 0);
+			color: #808080;
+			display: block;
+			font-family: 'Lucida Console';
+			font-size: 18px;
+			line-height: 54px;
+			padding: 0 25px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+		.submenu li:hover {
+			background-color: #1c1c1c;
+			background: -moz-linear-gradient(#1c1c1c, #1b1b1b);
+			background: -ms-linear-gradient(#1c1c1c, #1b1b1b);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1c1c1c), color-stop(100%, #1b1b1b));
+			background: -webkit-linear-gradient(#1c1c1c, #1b1b1b);
+			background: -o-linear-gradient(#1c1c1c, #1b1b1b);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#1b1b1b');
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#1b1b1b')";
+			background: linear-gradient(#1c1c1c, #1b1b1b);
+
+			border-bottom: 2px solid #222222;
+			border-top: 2px solid #1B1B1B;
+		}
+
+		.submenu {
+			left: 0;
+			max-height: 0;
+			position: absolute;
+			top: 100%;
+			z-index: 0;
+
+			-webkit-perspective: 400px;
+			-moz-perspective: 400px;
+			-ms-perspective: 400px;
+			-o-perspective: 400px;
+			perspective: 400px;
+		}
+		.submenu li {
+			opacity: 0;
+
+			-webkit-transform: rotateY(90deg);
+			-moz-transform: rotateY(90deg);
+			-ms-transform: rotateY(90deg);
+			-o-transform: rotateY(90deg);
+			transform: rotateY(90deg);
+
+			-webkit-transition: opacity .4s, -webkit-transform .5s;
+			-moz-transition: opacity .4s, -moz-transform .5s;
+			-ms-transition: opacity .4s, -ms-transform .5s;
+			-o-transition: opacity .4s, -o-transform .5s;
+			transition: opacity .4s, transform .5s;
+		}
+		.rotatemenu .submenu li:hover a {
+			border-left: 3px solid #454545;
+			border-radius: 0;
+			color: #ffffff;
+		}
+		.rotatemenu > li:hover .submenu, .rotatemenu > li:focus .submenu {
+			max-height: 2000px;
+			z-index: 10;
+		}
+		.rotatemenu > li:hover .submenu li, .rotatemenu > li:focus .submenu li {
+			opacity: 1;
+
+			-webkit-transform: none;
+			-moz-transform: none;
+			-ms-transform: none;
+			-o-transform: none;
+			transform: none;
+		}
+
+		.rotatemenu li:hover .submenu li:nth-child(1) {
+			-webkit-transition-delay: 0s;
+			-moz-transition-delay: 0s;
+			-ms-transition-delay: 0s;
+			-o-transition-delay: 0s;
+			transition-delay: 0s;
+		}
+		.rotatemenu li:hover .submenu li:nth-child(2) {
+			-webkit-transition-delay: 50ms;
+			-moz-transition-delay: 50ms;
+			-ms-transition-delay: 50ms;
+			-o-transition-delay: 50ms;
+			transition-delay: 50ms;
+		}
+		.rotatemenu li:hover .submenu li:nth-child(3) {
+			-webkit-transition-delay: 100ms;
+			-moz-transition-delay: 100ms;
+			-ms-transition-delay: 100ms;
+			-o-transition-delay: 100ms;
+			transition-delay: 100ms;
+		}
+		.rotatemenu li:hover .submenu li:nth-child(4) {
+			-webkit-transition-delay: 150ms;
+			-moz-transition-delay: 150ms;
+			-ms-transition-delay: 150ms;
+			-o-transition-delay: 150ms;
+			transition-delay: 150ms;
+		}
+		.rotatemenu li:hover .submenu li:nth-child(5) {
+			-webkit-transition-delay: 200ms;
+			-moz-transition-delay: 200ms;
+			-ms-transition-delay: 200ms;
+			-o-transition-delay: 200ms;
+			transition-delay: 200ms;
+		}
+		.rotatemenu li:hover .submenu li:nth-child(6) {
+			-webkit-transition-delay: 250ms;
+			-moz-transition-delay: 250ms;
+			-ms-transition-delay: 250ms;
+			-o-transition-delay: 250ms;
+			transition-delay: 250ms;
+		}
+		.rotatemenu li:hover .submenu li:nth-child(7) {
+			-webkit-transition-delay: 300ms;
+			-moz-transition-delay: 300ms;
+			-ms-transition-delay: 300ms;
+			-o-transition-delay: 300ms;
+			transition-delay: 300ms;
+		}
+		.rotatemenu li:hover .submenu li:nth-child(8) {
+			-webkit-transition-delay: 350ms;
+			-moz-transition-delay: 350ms;
+			-ms-transition-delay: 350ms;
+			-o-transition-delay: 350ms;
+			transition-delay: 350ms;
+		}
+
+		.submenu li:nth-child(1) {
+			-webkit-transition-delay: 350ms;
+			-moz-transition-delay: 350ms;
+			-ms-transition-delay: 350ms;
+			-o-transition-delay: 350ms;
+			transition-delay: 350ms;
+		}
+		.submenu li:nth-child(2) {
+			-webkit-transition-delay: 300ms;
+			-moz-transition-delay: 300ms;
+			-ms-transition-delay: 300ms;
+			-o-transition-delay: 300ms;
+			transition-delay: 300ms;
+		}
+		.submenu li:nth-child(3) {
+			-webkit-transition-delay: 250ms;
+			-moz-transition-delay: 250ms;
+			-ms-transition-delay: 250ms;
+			-o-transition-delay: 250ms;
+			transition-delay: 250ms;
+		}
+		.submenu li:nth-child(4) {
+			-webkit-transition-delay: 200ms;
+			-moz-transition-delay: 200ms;
+			-ms-transition-delay: 200ms;
+			-o-transition-delay: 200ms;
+			transition-delay: 200ms;
+		}
+		.submenu li:nth-child(5) {
+			-webkit-transition-delay: 150ms;
+			-moz-transition-delay: 150ms;
+			-ms-transition-delay: 150ms;
+			-o-transition-delay: 150ms;
+			transition-delay: 150ms;
+		}
+		.submenu li:nth-child(6) {
+			-webkit-transition-delay: 100ms;
+			-moz-transition-delay: 100ms;
+			-ms-transition-delay: 100ms;
+			-o-transition-delay: 100ms;
+			transition-delay: 100ms;
+		}
+		.submenu li:nth-child(7) {
+			-webkit-transition-delay: 50ms;
+			-moz-transition-delay: 50ms;
+			-ms-transition-delay: 50ms;
+			-o-transition-delay: 50ms;
+			transition-delay: 50ms;
+		}
+		.submenu li:nth-child(8) {
+			-webkit-transition-delay: 0s;
+			-moz-transition-delay: 0s;
+			-ms-transition-delay: 0s;
+			-o-transition-delay: 0s;
+			transition-delay: 0s;
+		}
 		.form-item{margin-top:20px;}
 		.form-label{float:left;padding-right:30px;width:130px;font-size:18px;font-weight:bold;text-align:right;}
 		.form-input{float:left;}
@@ -131,21 +352,53 @@
 	</script>
 </head>
 <body onload="setMenuPisition()" style="overflow-x: hidden;overflow-y: scroll;">
-<!--走进意创-->
+<input type="hidden" id="caipin" name="caipin" value="${caipin}"/>
 
+<!--走进意创-->
 <div class="top">
 	<div class="menu">
 		<div class="logo"><img src="_files/images/logo.png" /></div>
-		<ul class="nav0">
-			<li style="margin-left: 30px"><a href="${ctx}/"><span class="cn" style="top:0; left: 0px;"> 首页</span><span class="en" style="bottom:-30px; left: 0px;">index</span></a></li>
+		<ul class="rotatemenu">
+			<li id="nav_index"  style="margin: 35px 0px 0px 30px;text-align: center" ><a href="${ctx}/"><span class="cn" style="
+			top:0; left: 0px; font:16px/30px '微软雅黑';">首页</span></a></li>
 			[@NodeList;list]
 			[#list list as n]
-			<li style="margin-left: 30px"><a href="${n.url}"><span class="cn" style="[#if n_index==4]color:red;[/#if]top:0; left: 0px;">${n.name}</span><span class="en" style="bottom:-30px; left: 0px;">${n.number}</span></a></li>
+			<li  style="margin: 35px 0px 0px 30px;text-align: center;">
+				<a href="${n.url}"><span class="cn" style="top:0; left: 0px;font:16px/30px '微软雅黑';[#if n_index==4]color:red;[/#if]">${n.name}</span>
+				</a>
+				<ul class="submenu">
+					[#if n_index==0||n_index==3]
+					[@InfoList nodeId=n.id sort='id asc' limit='6';list]
+					[#list list as info]
+					<li><a href="/node/[#if n_index==0]36[#else]51[/#if]_${info_index+1}.jspx">${info.title}</a></li>
+					[/#list]
+					[/@InfoList]
+					[/#if]
+					[#if n_index==1||n_index==2]
+					[@NodeList parentId=n.id;list]
+					[#list list as subn]
+					<li><a href="/node/[#if n_index==1]48[#else]49[/#if]_${subn_index+1}.jspx">${subn.title}</a></li>
+					[/#list]
+					[/@NodeList]
+					[#if n_index==2]
+					<li><a href="/node/49_5.jspx">联系我们</a></li>
+					[/#if]
+					[/#if]
+					[#if n_index==4]
+					<li><a href="/node/52_1.jspx">公司新闻</a></li>
+					<li><a href="/node/52_2.jspx">联系我们</a></li>
+					<li><a href="/node/52_3.jspx">招聘职位</a></li>
+					<li><a href="/node/52_4.jspx">各项信息</a></li>
+					<li><a href="/node/52_5.jspx">给我留言</a></li>
+
+					[/#if]
+				</ul>
+			</li>
 			[/#list]
 			[/@NodeList]
-
 		</ul>
 	</div>
+
 </div>
 <div class="space"></div>
 [@Info id=330;info]
@@ -163,9 +416,10 @@
 			<div class="anli_left2">
 				<div class="Menubox2">
 					<ul class="case_list">
-						[@InfoList nodeId=node.id sort='id asc' limit='4';list]
+						<li id="one1" class="hover position_fixed "  onclick="setTab('one','1',6)">公司新闻</li>
+						[@InfoList nodeId=node.id sort='id asc' limit='3';list]
 						[#list list as info]
-						<li  class="[#if info_index==0] hover[/#if] position_fixed"  id="one${info_index+1}" onclick="setTab('one','${info_index+1}',6)">${info.title}</li>
+						<li  class="position_fixed"  id="one${info_index+2}" onclick="setTab('one','${info_index+2}',6)">${info.title}</li>
 						[/#list]
 						[/@InfoList]
 						<li id="one5" class="position_fixed"  onclick="setTab('one','5',6)">给我留言</li>
@@ -176,17 +430,54 @@
 				<div class="fengxian_box">
 					<div id="Tab1">
 						<div class="Contentbox">
-							[@InfoList nodeId=node.id sort='id asc' limit='4';list]
+							<div  class="con1"  style="display:block"  id="con_one_1"><br />
+								<ul>
+									[@InfoList nodeId=117 sort='id asc' limit='12';list]
+									[#list list as info]
+										<!--onclick="javascript:showcontent(274)"-->
+										<li>
+											<div class="li_div">
+												<img src="${info.smallImageUrl}" width="186" height="139">
+												<h1><a href="${info.url}">${info.title}</a></h1>
+												<h2>${info.publishDate?string('yyyy-MM-dd HH:mm')}</h2>
+												<span>${info.description}</span>
+											</div>
+											<div id="news_info" style="display:none;">
+												<div class="news_close">
+													<div class="news_title">
+														<h1></h1>
+														<h2></h2>
+													</div>
+													<a href="###" onclick="news_close();"><img src="/Public/Home/images/news_close.png"></a>
+													<!--<a href="###"><img src="/Public/Home/images/news_next.png" /></a>
+                                                    <a href="###"><img src="/Public/Home/images/news_pre.png" /></a>-->
+												</div>
+												<div class="news_info_cont">
+													<div class="news_txt">
+														<div class="news_content" id="news_content">
+
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</li><!--onclick="javascript:showcontent(273)"-->
+
+								[/#list]
+									[/@InfoList]
+								</ul>
+							</div>
+							[@InfoList nodeId=node.id sort='id asc' limit='3';list]
 							[#list list as info]
-							<div  class="[#if info_index==0] hover[/#if]"  style="[#if info_index>0]display:none[/#if]"  id="con_one_${info_index+1}"><br />
+							<div  class=""  style="display:none"  id="con_one_${info_index+2}"><br />
 								<div>
 									[#list info.textList as textInfo]
 									[#noescape]${textInfo.text}[/#noescape]
 									[/#list]
 								</div>
-								[#if info_index==1]
+								[#if info_index==0]
 								<!--百度地图容器-->
-								<div style="width:820px;height:600px;border:#ccc solid 1px;" id="dituContent"></div>
+								<div style="width:820px;height:600px;border:#ccc solid 1px;margin-top: 20px" id="dituContent"></div>
 								<script type="text/javascript">
                                     //创建和初始化地图函数：
                                     function initMap(){
@@ -363,7 +654,8 @@
 		positionFixeds[2].style="height:80px;position:fixed;top:275px;";
 		positionFixeds[3].style="height:80px;position:fixed;top:355px;";
 		positionFixeds[4].style="height:80px;position:fixed;top:435px;";
-
+        var cai=document.getElementById("caipin");
+        setTab('one',cai.value,6);
 	};
 	if(document.readyState=="complete"){
 		setMenuPisition();

@@ -45,7 +45,7 @@ table td br{display:none;}
 				<span style="display:inline-block;width:55px;">库存</span>
 				<span style="font-size:14px;font-weight:bold;">${info.customs['stock']}</span>
 			</div>
-			
+
 			[@ScoreGroup number='star';group]
 			[#if group??]
 			<div class="ff-yh" style="color:#999;line-height:28px;">
@@ -56,7 +56,7 @@ table td br{display:none;}
 			<script type="text/javascript">
 			function getScore() {
 				$.get("${dy}/info_score/${info.id}.jspx?d="+new Date()*1,function(data) {
-					var tickets=0,score=0,totalScore=0;	
+					var tickets=0,score=0,totalScore=0;
 					for(var id in data) {
 						if($("#item-score-"+id).length>0){
 							tickets+=data[id];
@@ -71,13 +71,13 @@ table td br{display:none;}
 						if(score>i){
 							$starGroup.eq(i).addClass("bright");
 						} else {
-							$starGroup.eq(i).removeClass("bright");							
+							$starGroup.eq(i).removeClass("bright");
 						}
 					}
 					if(score!=0) {
 						$("#score").text(score.toFixed(1))
 					}
-				},"json");				
+				},"json");
 			}
 			$(function(){
 				getScore();
@@ -97,7 +97,7 @@ table td br{display:none;}
 							getScore();
 							//alert("评价成功");
 						}else{
-							alert("您已经评价过了！");	
+							alert("您已经评价过了！");
 						}
 					}
 				);
@@ -112,7 +112,7 @@ table td br{display:none;}
 						$("#evaluation").text(evaluations[index]);
 					},function(){
 						for(var i=0;i<=index;i++) {
-							$("#evaluationGroup > span").eq(i).removeClass("bright");	
+							$("#evaluationGroup > span").eq(i).removeClass("bright");
 						}
 						$("#evaluation").text("");
 					});
@@ -157,14 +157,14 @@ table td br{display:none;}
 						} else {
 							$("#tabHead > a").eq(i).removeClass("tab-curr");
 							$("#tabBody > div").eq(i).hide();
-						}				
+						}
 					}
 				});
 			});
 		});
 		</script>
 	</div>
-	<div id="commentDiv" class="mt20"></div>		
+	<div id="commentDiv" class="mt20"></div>
 	<script type="text/javascript">
 		$("#commentDiv").load("${dy}/comment_list.jspx?fid=${info.id}&url=${url?url}&d="+new Date()*1);
 	</script>

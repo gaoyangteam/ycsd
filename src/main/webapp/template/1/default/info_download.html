@@ -90,11 +90,11 @@ a.node-curr{color:#fff;background-color:#fb6902;text-decoration:none;}
 				<div class="left b ff-yh fs14" style="height:31px;line-height:28px;padding:0 12px;margin-top:-1px;margin-left:-1px;border-top:3px solid #0098fd;border-right:1px solid #dbdbdb;border-left:1px solid #dbdbdb;border-bottom:1px solid #dbdbdb;background-color:#fff;">软件简介</div>
 				<div class="clear"></div>
 			</div>
-			<div style="padding:15px;">				
+			<div style="padding:15px;">
 				[#noescape]${text}[/#noescape]
 			</div>
 		</div>
-		<div id="commentDiv" class="mt20"></div>		
+		<div id="commentDiv" class="mt20"></div>
 		<script type="text/javascript">
 			$("#commentDiv").load("${dy}/comment_list.jspx?fid=${info.id}&url=${url?url}&d="+new Date()*1);
 		</script>
@@ -123,7 +123,7 @@ a.node-curr{color:#fff;background-color:#fb6902;text-decoration:none;}
 			<li style="[#if info_has_next]border-bottom:1px dotted #dbdbdb;[/#if]">
 				<div class="left"><span style="background-color:[#if info_index<3]#F47B0F[#else]#c8c8c8[/#if];color:#fff;padding:0px 6px;">${info_index+1}</span><a href="${info.url}" class="ai1 ml10" style="line-height:25px;" target="_blank">${substring(info.title,20,'...')}</a></div>
 				<div class="right" style="color:#858585;">${info.bufferDownloads}</div>
-				<div class="clear"></div>			
+				<div class="clear"></div>
 			</li>
 			[/#list]
 			[/@InfoList]

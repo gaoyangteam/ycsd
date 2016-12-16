@@ -41,13 +41,13 @@ function setPhoto(index) {
 	$("#photoImage").attr("src",photoImages[index-1]);
 	$("#photoOrig").attr("href",photoImages[index-1]);
 	$("#photoText").text(photoTexts[index-1]);
-	$("#photoIndex").text(index);		
+	$("#photoIndex").text(index);
 	$("#photoMin"+currPhoto).removeClass("photo-min-curr");
 	$("#photoMin"+index).addClass("photo-min-curr");
 	//第一张图片没有上一张
 	if(index==1) {
 		$("#prevPhotoBtn").hide();
-	} else {		
+	} else {
 		$("#prevPhotoBtn").show();
 	}
 	//大于5张图，需要移动缩略图位置。
@@ -63,7 +63,7 @@ function setPhoto(index) {
 			$("#photoMinContainer").animate({"left":"-"+$("#photoMinCell").width()*(index-3)+"px"});
 		}
 	}
-	window.location.hash = "#p="+index;	
+	window.location.hash = "#p="+index;
 	currPhoto=index;
 }
 function photoEndShow() {
@@ -92,14 +92,14 @@ function nextGroup() {
 	if(nextLeft<maxLeft) {
 		nextLeft = maxLeft;
 	}
-	$("#photoMinContainer").animate({"left":nextLeft});	
+	$("#photoMinContainer").animate({"left":nextLeft});
 }
 function prevGroup() {
 	var nextLeft = $("#photoMinContainer").position().left + $("#photoMinCell").width()*5;
 	if(nextLeft>0) {
 		nextLeft = 0;
 	}
-	$("#photoMinContainer").animate({"left":nextLeft});		
+	$("#photoMinContainer").animate({"left":nextLeft});
 }
 $(function(){
 	var photoAnchor = window.location.hash;
@@ -129,7 +129,7 @@ $(function(){
 		[/@InfoNext]
 	</div>
 </div>
-<div class="w center">	
+<div class="w center">
 	<div style="padding:10px 5px;">您的位置:&nbsp; [#list node.hierarchy as n]<a href="${n.url}" class="a c-desc">${n.name}</a>[#if n_has_next] > [/#if][/#list] > 图集</div>
 	<div class="" style="padding:30px 25px;border-top:2px solid #206f96;border-left:1px solid #cfcfcf;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;">
 		<h1 class="ff-yh text-center" style="font-size:28px;font-weight:normal;margin:0;">${title}</h1>
@@ -140,12 +140,12 @@ $(function(){
 				<script type="text/javascript">
 					$("#info_views").load("${dy}/info_views/${info.id}.jspx?d="+new Date()*1);
 				</script>
-				<span class="info-detail"><span id="info_comments"></span>条评论</span>			
+				<span class="info-detail"><span id="info_comments"></span>条评论</span>
 				<script type="text/javascript">
 					 $("#info_comments").load("${dy}/info_comments/${info.id}.jspx?d="+new Date()*1);
 				</script>
 			</div>
-			<div class="right">			
+			<div class="right">
 				<div class="bdsharebuttonbox"><a href="#" class="bds_more a-none c-666" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
 				<script>
 					window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};
@@ -187,7 +187,7 @@ $(function(){
 				</a>
 				[/@InfoPrev]
 			</div>
-			<a href="javascript:;" onclick="prevGroup();" class="left group-left" style="margin-left:18px;height:124px;width:12px;padding:0 9px;"></a>			
+			<a href="javascript:;" onclick="prevGroup();" class="left group-left" style="margin-left:18px;height:124px;width:12px;padding:0 9px;"></a>
 			<div class="left" style="width:620px;margin:0 14px;overflow:hidden;">
 				<div style="width:90000px;">
 					<table id="photoMinContainer" class="relative"><tr>
@@ -201,7 +201,7 @@ $(function(){
 					</tr></table>
 				</div>
 			</div>
-			<div class="right" style="width:102px;padding-top:4px;">			
+			<div class="right" style="width:102px;padding-top:4px;">
 				[@InfoNext id=info.id;bean]
 				<a href="${bean.url}" class="a1 relative ff-yh block" title="下一图集">
 					<div style="z-index:2;position:absolute;left:-4px;top:-4px;background-color:#fff;border:1px solid #dedfe3;width:100px;height:100px;">
@@ -216,7 +216,7 @@ $(function(){
 			<a href="javascript:;" onclick="nextGroup();" class="right group-right" style="margin-right:18px;height:124px;width:12px;padding:0 9px;"></a>
 			<div class="clear"></div>
 		</div>
-		<div id="commentDiv" class="mt20"></div>		
+		<div id="commentDiv" class="mt20"></div>
 		<script type="text/javascript">
 			$("#commentDiv").load("${dy}/comment_list.jspx?fid=${info.id}&url=${url?url}&d="+new Date()*1);
 		</script>
