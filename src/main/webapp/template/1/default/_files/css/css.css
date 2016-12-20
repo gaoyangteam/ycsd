@@ -178,17 +178,18 @@ a.arr_r:hover,ul.page li a.n:hover,a.nv:hover{background-position:right bottom;}
 
 .tab{width:100%;margin:0 auto;}
 
-.tab .menu{ position:relative; display:block; width:100%; background:url(../images/pink.jpg) repeat;height:300px;}
+.tab .logomenu{ position:relative; display:block; width:100%; background:url(../images/pink.jpg) repeat;height:300px;}
 
 
 
-.tab .menu ul{ float:left; position:absolute; display:block; width:1200px; margin:0 auto;height:300px;}
+.tab .logomenu ul{ float:left; position:absolute; display:block; width:1200px; margin:0 auto;height:300px;}
 
-.tab .menu ul li{float:left;text-align:center;width:25%;height:100px;cursor:pointer; background:url(../images/news_libj.png) center no-repeat; color:#fff; padding:60px 0; text-align:center;font:35px/50px "微软雅黑";}
+.tab .logomenu ul li{float:left;text-align:center;width:25%;height:100px;cursor:pointer;  color:#fff;  text-align:center;font:35px/50px "微软雅黑";}
 
-.tab .menu ul li font{ display:block; text-align:center; text-transform:uppercase;font:18px/30px "Arial Unicode MS";}
 
-.tab .menu ul li.active{background:url(../images/news_liselect.png) center no-repeat;color:#0fa9a0;}
+.tab .logomenu ul li font{ display:block; text-align:center; text-transform:uppercase;font:18px/30px "Arial Unicode MS";}
+
+.tab .logomenu ul li.active{background:url(../images/news_liselect.png) center no-repeat;color:#0fa9a0;}
 
 .con1,.con2,.con3{height: auto; overflow:hidden;}
 
